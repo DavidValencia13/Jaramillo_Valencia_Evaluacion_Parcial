@@ -1,6 +1,13 @@
 import { useCallback, useState } from "react";
-import { View, Text, FlatList, TouchableOpacity, Alert } from "react-native";
-import { listStyles, categoryStyles } from "../styles/appStyles";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Alert,
+  TextInput,
+} from "react-native";
+import { listStyles, categoryStyles, COLORS } from "../styles/appStyles";
 import { ScreenProps } from "../navigation/typesNavigation";
 import { Gadget } from "../types/gadget";
 import { gadgetService } from "../services/gadgetService";
@@ -11,6 +18,7 @@ type Props = ScreenProps<"List">;
 export const ListScreen = ({ navigation }: Props) => {
   const [gadgets, setGadgets] = useState<Gadget[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [searchText, setSearchText] = useState<string>("");
 
   // Cada vez que la pantalla vuelve a estar visible, recarga los gadgets
   useFocusEffect(
@@ -32,6 +40,13 @@ export const ListScreen = ({ navigation }: Props) => {
     }
   };
 
+  // Filtrar por nombre o marca en tiempo real
+  const filteredGadgets = gadgets.filter(
+    (gadget) =>
+      gadget.name.toLowerCase().includes(searchText.toLowerCase()) ||
+      gadget.brand.toLowerCase().includes(searchText.toLowerCase()),
+  );
+
   return (
     <View style={listStyles.container}>
       {/* Header personalizado */}
@@ -46,21 +61,36 @@ export const ListScreen = ({ navigation }: Props) => {
           </View>
           <View style={listStyles.badge}>
             <Text style={listStyles.badgeNumber}>{gadgets.length}</Text>
-            <Text style={listStyles.badgeLabel}>ITEMS</Text>
+            <Text style={listStyles.badgeLabel}>ARTÍCULOS</Text>
           </View>
         </View>
+      </View>
+
+      {/* Barra de búsqueda */}
+      <View style={listStyles.searchContainer}>
+        <TextInput
+          style={listStyles.searchInput}
+          placeholder="🔍 Buscar por nombre o marca..."
+          placeholderTextColor={COLORS.textLight}
+          value={searchText}
+          onChangeText={setSearchText}
+        />
       </View>
 
       <Text style={listStyles.sectionLabel}>AGREGADOS RECIENTEMENTE</Text>
 
       {/* Lista de gadgets */}
       <FlatList
-        data={gadgets}
+        data={filteredGadgets}
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={listStyles.list}
         ListEmptyComponent={
           <Text style={listStyles.emptyText}>
-            {loading ? "Cargando..." : "No hay gadgets aún. ¡Agrega el primero!"}
+            {loading
+              ? "Cargando..."
+              : searchText
+                ? "No se encontraron gadgets"
+                : "No hay gadgets aún. ¡Agrega el primero!"}
           </Text>
         }
         renderItem={({ item }) => {

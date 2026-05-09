@@ -79,6 +79,20 @@ export const listStyles = StyleSheet.create({
     color: COLORS.white,
     textTransform: "uppercase",
   },
+  searchContainer: {
+    paddingHorizontal: SIZES.paddingLarge,
+    paddingBottom: SIZES.paddingMedium,
+  },
+  searchInput: {
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    borderRadius: 25,
+    paddingHorizontal: SIZES.paddingMedium,
+    paddingVertical: SIZES.paddingSmall + 2,
+    fontSize: SIZES.fontMedium,
+    backgroundColor: COLORS.inputBg,
+    color: COLORS.white,
+  },
   sectionLabel: {
     fontSize: SIZES.fontSmall,
     color: COLORS.textMedium,
@@ -378,11 +392,15 @@ export const formStyles = StyleSheet.create({
 });
 
 // CATEGORY STYLES
-export const categoryStyles: Record<string, { color: string; bg: string; emoji: string }> = {
-  laptop:     { color: "#00B4D8", bg: "#0A2540", emoji: "💻" },
-  phone:      { color: "#A855F7", bg: "#1E0A40", emoji: "📱" },
-  tablet:     { color: "#F59E0B", bg: "#2D1F00", emoji: "📟" },
-  camera:     { color: "#EF4444", bg: "#2D0A0A", emoji: "📷" },
+
+export const categoryStyles: Record<
+  string,
+  { color: string; bg: string; emoji: string }
+> = {
+  laptop: { color: "#00B4D8", bg: "#0A2540", emoji: "💻" },
+  phone: { color: "#A855F7", bg: "#1E0A40", emoji: "📱" },
+  tablet: { color: "#F59E0B", bg: "#2D1F00", emoji: "📟" },
+  camera: { color: "#EF4444", bg: "#2D0A0A", emoji: "📷" },
   headphones: { color: "#06D6A0", bg: "#002D20", emoji: "🎧" },
-  default:    { color: "#6B7A8D", bg: "#1E2D3D", emoji: "🔧" },
+  default: { color: "#6B7A8D", bg: "#1E2D3D", emoji: "🔧" },
 };

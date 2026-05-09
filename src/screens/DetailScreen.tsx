@@ -37,11 +37,11 @@ export default function DetailScreen({ route, navigation }: Props) {
   const confirmDelete = (): void => {
     if (gadget === null) return;
     Alert.alert(
-      "Delete Gadget",
-      `Are you sure you want to delete "${gadget.name}"? This action cannot be undone.`,
+      "Eliminar Gadget",
+      `¿Estás seguro de que quieres eliminar "${gadget.name}"? Esta acción no se puede deshacer.`,
       [
-        { text: "Cancel", style: "cancel" },
-        { text: "Delete", style: "destructive", onPress: handleDelete },
+        { text: "Cancelar", style: "cancel" },
+        { text: "Eliminar", style: "destructive", onPress: handleDelete },
       ],
     );
   };
@@ -50,10 +50,10 @@ export default function DetailScreen({ route, navigation }: Props) {
     if (gadget === null) return;
     try {
       await gadgetService.delete(gadget.id);
-      Alert.alert("Success", "Gadget deleted successfully");
+      Alert.alert("Éxito", "Gadget eliminado correctamente");
       navigation.goBack();
     } catch (error) {
-      Alert.alert("Error", "Could not delete the gadget");
+      Alert.alert("Error", "No se pudo eliminar el gadget");
       console.error(error);
     }
   };
@@ -61,7 +61,7 @@ export default function DetailScreen({ route, navigation }: Props) {
   if (gadget === null) {
     return (
       <View style={detailStyles.container}>
-        <Text style={detailStyles.loadingText}>Loading...</Text>
+        <Text style={detailStyles.loadingText}>Cargando...</Text>
       </View>
     );
   }
@@ -84,46 +84,46 @@ export default function DetailScreen({ route, navigation }: Props) {
       </View>
 
       {/* Sección PRODUCT INFO */}
-      <Text style={detailStyles.sectionLabel}>PRODUCT INFO</Text>
+      <Text style={detailStyles.sectionLabel}>INFORMACIÓN DEL PRODUCTO</Text>
 
       {/* Card nombre */}
       <View style={detailStyles.card}>
-        <Text style={detailStyles.label}>NAME</Text>
+        <Text style={detailStyles.label}>NOMBRE</Text>
         <Text style={detailStyles.value}>{gadget.name}</Text>
       </View>
 
       {/* Card brand y year en dos columnas */}
       <View style={detailStyles.fieldRow}>
         <View style={[detailStyles.card, detailStyles.fieldHalf]}>
-          <Text style={detailStyles.label}>BRAND</Text>
+          <Text style={detailStyles.label}>MARCA</Text>
           <Text style={detailStyles.value}>{gadget.brand}</Text>
         </View>
         <View style={[detailStyles.card, detailStyles.fieldHalf]}>
-          <Text style={detailStyles.label}>YEAR</Text>
+          <Text style={detailStyles.label}>AÑO</Text>
           <Text style={detailStyles.value}>{gadget.purchaseYear}</Text>
         </View>
       </View>
 
       {/* Card precio destacada */}
       <View style={detailStyles.priceCard}>
-        <Text style={detailStyles.label}>PRICE</Text>
+        <Text style={detailStyles.label}>PRECIO</Text>
         <Text style={detailStyles.priceValue}>${gadget.price}</Text>
       </View>
 
-      {/* Botones Edit y Delete */}
+      {/* Botones Editar y Eliminar */}
       <View style={detailStyles.buttonContainer}>
         <TouchableOpacity
           style={detailStyles.editButton}
           onPress={() => navigation.navigate("Form", { id: gadget.id })}
         >
-          <Text style={detailStyles.editButtonText}>Edit</Text>
+          <Text style={detailStyles.editButtonText}>Editar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={detailStyles.deleteButton}
           onPress={confirmDelete}
         >
-          <Text style={detailStyles.deleteButtonText}>Delete</Text>
+          <Text style={detailStyles.deleteButtonText}>Eliminar</Text>
         </TouchableOpacity>
       </View>
 

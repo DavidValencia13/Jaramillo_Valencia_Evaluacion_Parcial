@@ -25,13 +25,13 @@ export const StackNavigator = () => {
       <Stack.Screen
         name="Detail"
         component={DetailScreen}
-        options={{ title: "Gadget Details" }}
+        options={{ title: "Detalles del Gadget" }}
       />
       <Stack.Screen
         name="Form"
         component={FormScreen}
         options={({ route }) => ({
-          title: route.params?.id ? "Edit Gadget" : "New Gadget",
+          title: route.params?.id ? "Editar Gadget" : "Nuevo Gadget",
         })}
       />
     </Stack.Navigator>

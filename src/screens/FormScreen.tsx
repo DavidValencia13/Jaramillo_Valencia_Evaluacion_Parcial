@@ -101,14 +101,14 @@ export const FormScreen = ({ route, navigation }: Props) => {
           price: priceNumber,
           purchaseYear: yearNumber,
         });
-        Alert.alert("Success", "Gadget updated successfully");
+        Alert.alert("Éxito", "Gadget actualizado correctamente");
       } else {
         await gadgetService.create({
           ...form,
           price: priceNumber,
           purchaseYear: yearNumber,
         });
-        Alert.alert("Success", "Gadget saved successfully");
+        Alert.alert("Éxito", "Gadget guardado correctamente");
       }
       navigation.goBack();
     } catch (error) {
@@ -127,17 +127,17 @@ export const FormScreen = ({ route, navigation }: Props) => {
       {/* Hero */}
       <View style={formStyles.hero}>
         <Text style={formStyles.heroTitle}>
-          {isEditMode ? "Edit Gadget" : "Add to inventory"}
+          {isEditMode ? "Editar Gadget" : "Agregar al inventario"}
         </Text>
         <Text style={formStyles.heroSubtitle}>
           {isEditMode
-            ? "Update the gadget information"
-            : "Fill in the gadget information"}
+            ? "Actualiza la información del gadget"
+            : "Completa la información del gadget"}
         </Text>
       </View>
 
-      {/* Name */}
-      <Text style={formStyles.label}>NAME *</Text>
+      {/* Nombre */}
+      <Text style={formStyles.label}>NOMBRE *</Text>
       <TextInput
         style={formStyles.input}
         value={form.name}
@@ -147,8 +147,8 @@ export const FormScreen = ({ route, navigation }: Props) => {
         maxLength={60}
       />
 
-      {/* Brand */}
-      <Text style={formStyles.label}>BRAND *</Text>
+      {/* Marca */}
+      <Text style={formStyles.label}>MARCA *</Text>
       <TextInput
         style={formStyles.input}
         value={form.brand}
@@ -158,8 +158,8 @@ export const FormScreen = ({ route, navigation }: Props) => {
         maxLength={60}
       />
 
-      {/* Category */}
-      <Text style={formStyles.label}>CATEGORY *</Text>
+      {/* Categoría */}
+      <Text style={formStyles.label}>CATEGORÍA *</Text>
       <TextInput
         style={formStyles.input}
         value={form.category}
@@ -169,10 +169,10 @@ export const FormScreen = ({ route, navigation }: Props) => {
         maxLength={40}
       />
 
-      {/* Price y Year en dos columnas */}
+      {/* Precio y Año en dos columnas */}
       <View style={formStyles.rowInputs}>
         <View style={formStyles.rowInput}>
-          <Text style={formStyles.label}>PRICE *</Text>
+          <Text style={formStyles.label}>PRECIO *</Text>
           <TextInput
             style={formStyles.input}
             value={form.price?.toString()}
@@ -183,7 +183,7 @@ export const FormScreen = ({ route, navigation }: Props) => {
           />
         </View>
         <View style={formStyles.rowInput}>
-          <Text style={formStyles.label}>YEAR *</Text>
+          <Text style={formStyles.label}>AÑO *</Text>
           <TextInput
             style={formStyles.input}
             value={form.purchaseYear?.toString()}
@@ -193,27 +193,27 @@ export const FormScreen = ({ route, navigation }: Props) => {
             keyboardType="numeric"
             maxLength={4}
           />
-          <Text style={formStyles.hint}>Range: 2000-2026</Text>
+          <Text style={formStyles.hint}>Rango: 2000-2026</Text>
         </View>
       </View>
 
-      {/* Botón Save */}
+      {/* Botón Guardar */}
       <TouchableOpacity
         style={[formStyles.saveButton, saving && formStyles.saveButtonDisabled]}
         onPress={handleSave}
         disabled={saving}
       >
         <Text style={formStyles.saveButtonText}>
-          {saving ? "Saving..." : isEditMode ? "Update Gadget" : "Save Gadget"}
+          {saving ? "Guardando..." : isEditMode ? "Actualizar Gadget" : "Guardar Gadget"}
         </Text>
       </TouchableOpacity>
 
-      {/* Botón Cancel */}
+      {/* Botón Cancelar */}
       <TouchableOpacity
         style={formStyles.cancelButton}
         onPress={() => navigation.goBack()}
       >
-        <Text style={formStyles.cancelButtonText}>Cancel</Text>
+        <Text style={formStyles.cancelButtonText}>Cancelar</Text>
       </TouchableOpacity>
     </ScrollView>
   );
