@@ -393,14 +393,11 @@ export const formStyles = StyleSheet.create({
 
 // CATEGORY STYLES
 
-export const categoryStyles: Record<
-  string,
-  { color: string; bg: string; emoji: string }
-> = {
-  laptop: { color: "#23b7d4", bg: "#0A2540", emoji: "💻" },
-  phone: { color: "#8e41d6", bg: "#1E0A40", emoji: "📱" },
-  tablet: { color: "#F59E0B", bg: "#2D1F00", emoji: "📟" },
-  camera: { color: "#EF4444", bg: "#2D0A0A", emoji: "📷" },
-  headphones: { color: "#06D6A0", bg: "#002D20", emoji: "🎧" },
-  default: { color: "#6B7A8D", bg: "#1E2D3D", emoji: "🔧" },
+export const categoryStyles: Record<string, { color: string; bg: string; emoji: string }> = {
+  laptop:  { color: "#23b7d4", bg: "#0A2540", emoji: "💻" },
+  telefono:  { color: "#8e41d6", bg: "#1E0A40", emoji: "📱" },
+  tableta:   { color: "#F59E0B", bg: "#2D1F00", emoji: "📟" },
+  camara:    { color: "#EF4444", bg: "#2D0A0A", emoji: "📷" },
+  audifonos: { color: "#06D6A0", bg: "#002D20", emoji: "🎧" },
+  default:   { color: "#6B7A8D", bg: "#1E2D3D", emoji: "🔧" },
 };
