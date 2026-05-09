@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export const COLORS = {
-  primary: "#0D1B2A",
-  secondary: "#1B4332",
+  primary: "#567da7",
+  secondary: "#257856",
   accent: "#00B4D8",
   accentGreen: "#06D6A0",
   background: "#0D1B2A",
@@ -397,8 +397,8 @@ export const categoryStyles: Record<
   string,
   { color: string; bg: string; emoji: string }
 > = {
-  laptop: { color: "#00B4D8", bg: "#0A2540", emoji: "💻" },
-  phone: { color: "#A855F7", bg: "#1E0A40", emoji: "📱" },
+  laptop: { color: "#23b7d4", bg: "#0A2540", emoji: "💻" },
+  phone: { color: "#8e41d6", bg: "#1E0A40", emoji: "📱" },
   tablet: { color: "#F59E0B", bg: "#2D1F00", emoji: "📟" },
   camera: { color: "#EF4444", bg: "#2D0A0A", emoji: "📷" },
   headphones: { color: "#06D6A0", bg: "#002D20", emoji: "🎧" },
