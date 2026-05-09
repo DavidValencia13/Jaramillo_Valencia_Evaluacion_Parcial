@@ -89,7 +89,7 @@ export const FormScreen = ({ route, navigation }: Props) => {
       yearNumber < 2000 ||
       yearNumber > 2026
     ) {
-      Alert.alert("Año inválido", "Ingresa un año entre 2000 y 2026");
+      Alert.alert("Año inválido", "Ingresa un año entre 1950 y 2026");
       return;
     }
 
@@ -124,7 +124,7 @@ export const FormScreen = ({ route, navigation }: Props) => {
       style={formStyles.container}
       contentContainerStyle={formStyles.scrollContent}
     >
-      {/* Hero */}
+      {/* titulo */}
       <View style={formStyles.hero}>
         <Text style={formStyles.heroTitle}>
           {isEditMode ? "Editar Gadget" : "Agregar al inventario"}

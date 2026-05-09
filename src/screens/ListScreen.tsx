@@ -49,7 +49,7 @@ export const ListScreen = ({ navigation }: Props) => {
 
   return (
     <View style={listStyles.container}>
-      {/* Header personalizado */}
+      {/* Titulo personalizado */}
       <View style={listStyles.header}>
         <View style={listStyles.headerTop}>
           <View>
@@ -108,7 +108,7 @@ export const ListScreen = ({ navigation }: Props) => {
 
               <View style={listStyles.cardInfo}>
                 <Text style={listStyles.cardName}>{item.name}</Text>
-                <Text style={listStyles.cardBrand}>{item.brand}</Text>
+                <Text style={listStyles.cardBrand}>  {item.brand}</Text>
                 <View
                   style={[
                     listStyles.cardCategory,
